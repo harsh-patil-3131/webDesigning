@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding cards </title>
+</head>
+<style>
+    .partition{
+        margin: 0;
+        padding: 0;
+        background-color: aqua;
+        display: flex;
+        flex-direction: row;
+        min-height: 100vh;
+    }
+    .first{
+        background-color: aqua;
+        height: auto;
+        width: 30vw;
+    }
+
+    .second{
+        background-color: rgb(48, 47, 47);
+        height: auto;
+        width: 70vw;
+        padding: 30px 30px;
+        display: flex;
+        flex-direction: column;
+    }
+    .card{
+        cursor: pointer;
+        display: flex;
+        position: relative;
+        height: 15vh;
+        margin: 7px;
+        padding: 0px;
+        /* background-color: red; */
+        border: 2px solid white;
+    }
+    .left{
+        height: 15vh;
+        width: 26.7vh;
+        /* background-color: blueviolet; */
+        left: 0px;
+        top:0px;
+    }
+    .right{
+        position: absolute;
+        top: 0px;
+        left: 26.7vh;
+        right: 0px;
+        /* width: 51.78vw; */
+        width: calc(100% -2626.7vh);
+        /* background-color: dimgray; */
+        height: 15vh;
+        /* width: auto; */
+        
+    }
+    .left img{
+        height: 15vh;
+        width: 26.7vh;
+        /* margin: 0px;
+        padding: 0px; */
+        position:absolute;
+        /* left: 5px;
+        top: 5px; */
+        object-fit: fill;
+    }
+    .right strong{
+        /* width: 51.78vw; */
+        width: 100%;
+        position: absolute;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        /* left: 28vh; */
+        color: white;
+        margin-top: 5px;
+        font-family: sans-serif;
+    }
+    .duration{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        position: absolute;
+        left: 21vh;
+        bottom: 5px;
+        height: 17px;
+        width: 34px;
+        background-color: rgb(0, 0, 0, 0.55);
+        z-index: 2;
+        color: white;
+        font-family: sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+    }
+    .down{
+        margin-top: 15px;
+        display: flex;
+        align-items: flex-start;
+        font-size: small;
+        font-family: sans-serif;
+        color: rgb(188, 179, 179);
+    }
+</style>
+<body>
+    <div class="partition">
+        <div class="first"></div>
+        <div class="second">
+            <!-- <div class="card">
+                <div class="left">
+                    <div class="duration">31:20</div>
+                    <img style="border-radius: 10px;" src="https://i.ytimg.com/vi/tVzUXW6siu0/hqdefault.jpg?sqp=-oaymwEnCPYBEIoBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCKktmHuXV_macV6MoUwhKxwzXJ7w" alt="image.png">
+                </div>
+                <div class="right">
+                    <strong title="Title of the Video is shown here adsf ;;dfa; dklfmv"> Title of the Video is shown here adsf ;;dfa; dklfmv  </strong>
+                    <div class="down">
+                        <p>Code With Harry | </p>
+                        <p>views | </p>
+                        <p> months old</p>
+                    </div>
+                </div>
+                
+                
+            </div> -->
+        </div>
+    </div>
+    <script src="quiz13.js"></script>
+</body>
+</html>
