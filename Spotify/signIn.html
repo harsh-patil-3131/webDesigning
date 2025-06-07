@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #loginTab {
+        align-self: center;
+        /* align-content: center; */
+        background-color: red;
+        background: linear-gradient(to bottom, rgb(120, 120, 120), black);
+        text-align: center;
+        color: white;
+        width: 50vw;
+        font-family: sans-serif;
+    }
+
+    .hdr {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 70px;
+        margin: 0;
+        box-sizing: border-box;
+        padding: 0;
+    }
+
+    #loginTab form {
+        border: 5px solid black;
+        padding-top: 20px;
+        height: 320px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hdr h2 {
+        box-sizing: border-box;
+        background-color: cadetblue;
+        margin: 0;
+        padding: 0;
+        /* align-items: center;
+        align-self: center; */
+        border: 2px solid black;
+        align-content: center;
+        width: 50%;
+        height: 100%;
+        /* background-color: ; */
+        transition: all .3s;
+        cursor: pointer;
+    }
+
+    .hdr h2:hover {
+        background-color: rgb(31, 148, 152);
+        /* transform: scale(1.3); */
+    }
+
+    .hdr h2:active {
+        background-color: rgb(115, 159, 160);
+    }
+
+    #loginTab form input {
+        color: white;
+        width: 30vw;
+        background: none;
+        border-radius: 20px;
+        border: 2px solid rgb(200, 200, 200);
+        padding: 10px 15px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        /* border: none; */
+    }
+
+    #loginTab form button {
+        background-color: #11c24f;
+        color: white;
+        padding: 10px 30px;
+        margin-bottom: 10px;
+        border-radius: 20px;
+        transition: all .3s;
+        border: none;
+    }
+
+    #loginTab form button:hover {
+        background-color: #049136;
+    }
+
+    #loginTab form button:active {
+        background-color: #53d781;
+    }
+
+    .fullSize {
+        z-index: 3;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgb(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+<body>
+    <button onclick="showSignUp()">Sign Up</button>
+    <button onclick="showLogIn()">Log In</button>
+    <!-- <div class="fullSize"> -->
+        <div id="loginTab" style="display: none;">
+            <div class="hdr">
+                <h2 id="signUp">Sign Up</h2>
+                <h2 id="logIn">Log In</h2>
+            </div>
+            <form>
+                <label id="lfullname" for="fullname">Full Name:</label>
+                <input type="text" id="fullname" placeholder="enter Full Name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="enter Email" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="enter Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    <!-- </div> -->
+
+    <script>
+        function showLogIn() {
+            document.getElementById('loginTab').style.display = 'block';
+            document.getElementById("logIn").style.border = "5px solid black"
+            document.getElementById("signUp").style.border = "2px solid black"
+            document.getElementById("signUp").style.width = "30%"
+            document.getElementById("logIn").style.width = "70%"
+            document.getElementById("logIn").style.backgroundColor = "rgb(31, 148, 152)"
+            document.getElementById("signUp").style.backgroundColor = "cadetblue"
+            document.getElementById("fullname").style.display = 'block'
+            document.getElementById("lfullname").style.display = 'block'
+            // background-color: rgb(31, 148, 152);
+        }
+        function showSignUp() {
+            document.getElementById('loginTab').style.display = 'block';
+            document.getElementById("signUp").style.border = "5px solid black"
+            document.getElementById("logIn").style.border = "2px solid black"
+            document.getElementById("signUp").style.width = "70%"
+            document.getElementById("logIn").style.width = "30%"
+            document.getElementById("signUp").style.backgroundColor = "rgb(31, 148, 152)"
+            document.getElementById("logIn").style.backgroundColor = "cadetblue"
+            document.getElementById("fullname").style.display = 'none'
+            document.getElementById("lfullname").style.display = 'none'
+        }
+        document.getElementById("signUp").addEventListener("click", (e) => {
+            document.getElementById("signUp").style.border = "5px solid black"
+            document.getElementById("logIn").style.border = "2px solid black"
+            document.getElementById("signUp").style.width = "70%"
+            document.getElementById("logIn").style.width = "30%"
+            document.getElementById("signUp").style.backgroundColor = "rgb(31, 148, 152)"
+            document.getElementById("logIn").style.backgroundColor = "cadetblue"
+            document.getElementById("fullname").style.display = 'none'
+            document.getElementById("lfullname").style.display = 'none'
+        })
+        document.getElementById("logIn").addEventListener("click", (e) => {
+            document.getElementById("signUp").style.border = "2px solid black"
+            document.getElementById("logIn").style.border = "5px solid black"
+            document.getElementById("signUp").style.width = "30%"
+            document.getElementById("logIn").style.width = "70%"
+            document.getElementById("logIn").style.backgroundColor = "rgb(31, 148, 152)"
+            document.getElementById("signUp").style.backgroundColor = "cadetblue"
+            document.getElementById("fullname").style.display = 'block'
+            document.getElementById("lfullname").style.display = 'block'
+        })
+    </script>
+
+</body>
+
+</html>

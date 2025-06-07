@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - Web Player: Music for everyone</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image" href="SVGs/favicon.ico">
+</head>
+
+<body>
+    <header>
+        <div class="hleft">
+            <ul>
+                <li>
+                    <img class="invert" src="SVGs/logo.svg" alt="SVGs/logo.svg">
+                </li>
+                <li class="listhammerBurger">
+                    <img class="invert hammerBurger" src="SVGs/hammerBurger.svg" alt="SVGs/hammerBurger.svg">
+                </li>
+                <li>
+                    <img class="invert" src="SVGs/home.svg" alt="SVGs/home.svg">
+                </li>
+                <li>
+                    <div class="searchbar">
+                        <img class="invert search-icon" src="SVGs/search.svg" alt="SVGs/search.svg">
+                        <input class="searchbar-input" type="text" placeholder="What do you want to play?">
+                        <img class="invert browse-icon" src="SVGs/browse.svg" alt="SVGs/browse.svg">
+                    </div>
+                </li>
+                <li class="logIn" onclick="showLogIn()">
+                    <button>Log in</button>
+                </li>
+            </ul>
+        </div>
+        <div class="hright">
+            <ul class="fc">
+                <li>Premium</li>
+                <li>Support</li>
+                <li>Download&nbsp;&nbsp;&nbsp;|</li>
+            </ul>
+            <ul class="sc">
+                <li class="install">
+                    <img class="" src="SVGs/install.svg" alt="SVGs/install.svg">
+                    Install App
+                </li>
+                <li class="signUp" onclick="showSignUp()">Sign Up</li>
+                <li class="logIn" onclick="showLogIn()">
+                    <button>Log in</button>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <!-- . -->
+    <div class="fullSize" style="display: none;">
+        <img id="close-logIn" class="invert" src="SVGs/cross.svg" alt="">
+        <div id="loginTab" style="z-index: 2;">
+            <div class="hdr">
+                <h2 id="signUp">Sign Up</h2>
+                <h2 id="logIn">Log In</h2>
+            </div>
+            <form>
+                <label id="lfullname" for="fullname">Full Name:</label>
+                <input type="text" id="fullname" placeholder="enter Full Name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="enter Email" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="enter Password" required>
+                <button id="btnlogIn" type="submit" onclick="setVal()">Login</button>
+            </form>
+        </div>
+    </div>
+    <div class="content">
+        <div class="left">
+            <div class="up">
+                <span>Your Library</span>
+                <img id="cross" class="invert" src="SVGs/cross.svg" alt="SVGs/cross.svg">
+            </div>
+            <div class="scroll scroll-1">
+                <div class="inside">
+                    <p>Create Your First Playlist</p>
+                    <span>It's easy, we'll help you</span>
+                    <button>Create Playlist</button>
+                </div>
+                <div class="inside">
+                    <p>Let's find some podcasts to follow</p>
+                    <span>We'll keep you updated on new episodes</span>
+                    <button>Browse podcasts</button>
+                </div>
+            </div>
+            <div class="scroll scroll-2">
+                <ul>
+                    <!-- here comes the added songs -->
+                </ul>
+            </div>
+            <div class="tags">
+                <span>Legal</span>
+                <span>Safety & Privacy Center</span>
+                <span>Privacy Policy</span>
+                <span>Cookies</span>
+                <span>About Ads</span>
+                <span>Accessibility</span>
+                <p class="bld">Cookies</p>
+            </div>
+            <button class="lbtnlast">
+                <img class="invert" src="SVGs/web.svg" alt="">
+                English
+            </button>
+            <ul class="sc">
+                <li class="install">
+                    <img class="" src="SVGs/install.svg" alt="SVGs/install.svg">
+                    Install App
+                </li>
+                <li class="signUp">Sign Up</li>
+                <li class="logIn">
+                    <button>Log in</button>
+                </li>
+            </ul>
+        </div>
+        <div class="right">
+            <div class="rightContent">
+                <div class="block">
+                    <h2>Trending Songs</h2>
+                    <div class="innerBlock ib-1">
+                        <!-- Here comes the Trending songs using JavaScript -->
+                    </div>
+                </div>
+                <div class="block">
+                    <h2>Popular artists</h2>
+                    <div class="innerBlock ib-2">
+                        <!-- Here comes the Cards of Popular Artist Using JavaScript -->
+                    </div>
+                </div>
+            </div>
+            <div class="playbar">
+                <div class="songInfo">Song Name</div>
+                <div class="songButtons">
+                    <img class="invert" id="previous" style="height: 40px;" src="SVGs/previous.png"
+                        alt="SVGs/previous.png">
+                    <img class="invert" id="play" src="SVGs/play.svg" alt="SVGs/play-pause.svg">
+                    <img class="invert" id="next" style="height: 40px;" src="SVGs/next.png" alt="">
+                </div>
+                <div class="songTimeVol">
+                    <!-- <img class="invert" src="SVGs/volume.svg" alt="SVGs/volume.svg"> -->
+                    <!-- <input type="range"> -->
+                    <div class="time">00:00 / 00:00</div>
+                </div>
+
+                <div class="seekBar">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- . -->
+    <footer>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>

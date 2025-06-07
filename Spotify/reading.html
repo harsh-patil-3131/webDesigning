@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul li {
+            display: flex;
+            gap: 10px;
+            margin: 10px;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        ul li img {
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scroll">
+        <ul>
+            <!-- here comes the added content -->
+            <li  data-src="asdf">
+                <img src="Trending Images/toofan.jpg" alt="toofan.jpg">
+                <p>songUrl</p>
+            </li>
+            <li data-src="ASDF">
+                <img src="Trending Images/toofan.jpg" alt="toofan.jpg">
+                <p>songUrl</p>
+            </li>
+        </ul>
+    </div>
+    <script>
+        let currentSong = new Audio()
+        let audio = new Audio();
+        async function readFolder(folderName) {
+            let div = document.createElement("div")
+            div.innerHTML = await (await fetch(`http://127.0.0.1:3000/Spotify/${folderName}/`)).text()
+            // console.log(`Inside ${folderName}`)
+            as = div.getElementsByTagName("a")
+            let folders = []
+            // console.log("folder content below")
+            for (let i = 1; i < as.length; i++) {
+                const element = as[i];
+                if (element.href.endsWith("/")) {
+                let subFolder = document.createElement("div")
+                subFolder.innerHTML = await (await fetch(`${element.href}`)).text()
+                let asSubFolder = subFolder.getElementsByTagName("a")
+                    // console.log(`Inside folder ${element.href}`)
+                    let song;
+                    let thumbnail;
+                    for (let j = 1; j < asSubFolder.length; j++) {
+                        const e = asSubFolder[j];
+                        if (e.href.endsWith(".mp3")) {
+                            song = e.href;
+                        }
+                        if (e.href.endsWith(".jpg")) {
+                            thumbnail = e.href;
+                        }
+                    }
+                    let scroll = document.querySelector(".scroll").getElementsByTagName("ul")[0]
+                    scroll.innerHTML = scroll.innerHTML + `<li data-src="${song}">
+                                                            <img src="${thumbnail}" alt="${thumbnail}">
+                                                            <p>${song}</p>
+                                                           </li>`;
+                    
+                }
+                // console.log(asSubFolder)
+                folders.push(element.href)
+            }
+            console.log("Folders content", folders)
+            Array.from(document.querySelector(".scroll").getElementsByTagName("li")).forEach(element=>{
+                element.addEventListener("click", e3=>{
+                    // currentSong.src = element.getAttribute("data-src");
+                    // console.log();
+                    currentSong.src = element.getAttribute("data-src");
+                    currentSong.play();
+                })
+            })
+        }
+        readFolder("Trending Songs");
+    </script>
+</body>
+
+</html>
