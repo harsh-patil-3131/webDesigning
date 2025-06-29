@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dummy Data Generator</title>
+    <style>
+        .btn {
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: lightblue;
+            padding: 20px;
+        }
+
+        .btn button {
+            background-color: burlywood;
+            border-radius: 10px;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .btn button:hover {
+            background-color: rgb(206, 172, 128);
+        }
+
+        .btn button:active {
+            background-color: rgb(194, 151, 96);
+        }
+
+        .info {
+            background-color: lightpink;
+            padding: 20px;
+            border: 2px solid black;
+            height: auto;
+            width: 90vw;
+            /* align-self: center; */
+            justify-self: center;
+        }
+
+        .info .card {
+            /* overflow: hidden; */
+            overflow-x: auto;
+            padding-left: 20px;
+            justify-content: start;
+            align-items: center;
+            gap: 20px;
+            display: flex;
+            background-color: lightsalmon;
+            min-height: 50px;
+            color: black;
+            width: auto;
+            margin: 10px;
+        }
+
+        .card .h2 {
+            background-color: red;
+            min-width: 500px;
+            /* width: 100px; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="btn">
+        <button>Generate Now</button>
+    </div>
+    <!-- name, salary, lang, city, manager -->
+    <div class="info"></div>
+
+    <script>
+        const generateBtn = document.querySelector(".btn button");
+        const infoContainer = document.querySelector(".info");
+
+        generateBtn.addEventListener("click", async () => {
+            const res = await fetch('/generate');
+            const employees = await res.json(); // get array of employees
+
+            // Clear existing cards
+            infoContainer.innerHTML = "";
+
+            // Create new cards
+            employees.forEach(emp => {
+                const card = document.createElement("div");
+                card.classList.add("card");
+
+                card.innerHTML = `
+                <h2>${emp.name}</h2>
+                <h3>₹${emp.salary}</h3>
+                <h3>${emp.language}</h3>
+                <h3>${emp.city}</h3>
+                <h3>${emp.isManager ? "Manager" : "Employee"}</h3>
+            `;
+
+                infoContainer.appendChild(card);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
